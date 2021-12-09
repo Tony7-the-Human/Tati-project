@@ -1,0 +1,220 @@
+//====================================================================================================
+.header {
+	position: fixed;
+	top: 0px;
+	left: 0;
+	width: 100%;
+	background: rgba(0, 0, 0, 0);
+	transition: all 0.35s ease-in;
+	padding: 32px 0px;
+	z-index: 100;
+	&::before {
+		position: fixed;
+		content: "";
+		top: 0;
+		left: 0;
+		width: 100%;
+		background: rgba(0, 0, 0, 0.8);
+		transition: all 0.35s ease-in;
+		z-index: 99;
+	}
+	@media (max-width: 369.98px) {
+		padding: 22px 0px;
+	}
+}
+.header {
+	// .header__body
+
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	// .header__social
+
+	&__social {
+		display: flex;
+		align-items: center;
+	}
+
+	// .header__item
+
+	&__item:not(:last-child) {
+		padding-right: 24px;
+	}
+
+	// .header__link
+
+	&__link {
+		width: 32px;
+		height: 32px;
+		display: block;
+		background-repeat: no-repeat;
+		background-size: cover;
+		transition: all 0.3s ease-in;
+		&:hover {
+			transform: translateY(-6px);
+			transition: all 0.4s ease-in;
+		}
+	}
+}
+.whatsapp {
+	background-image: url("../img/icons/whatsapp.svg");
+}
+.mail {
+	background-image: url("../img/icons/mail.svg");
+}
+.skype {
+	background-image: url("../img/icons/skype.svg");
+	//
+}
+
+.insta {
+	background-image: url("../img/icons/insta.svg");
+}
+
+.menu__body {
+	@media (min-width: 319.98px) {
+		position: fixed;
+		display: flex;
+		flex-direction: column;
+		// justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		top: 0;
+		left: -100%;
+		padding: 120px 15px 100px 15px;
+		transition: left 0.3s ease;
+		background: #000000; /* fallback for old browsers */
+		background: -webkit-linear-gradient(to left, #080808, #000000); /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to left, #080808, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+		width: 100%;
+		height: 100vh;
+		z-index: 7;
+		&::before {
+			content: "";
+			position: fixed;
+			width: 100%;
+			left: -100%;
+			z-index: 2;
+			transition: left 0.3s ease;
+			background-color: $mainColor;
+		}
+		&._active {
+			left: 0;
+			top: 0;
+			transition: left 0.3s ease;
+			&::before {
+				left: 0;
+				transition: left 0.3s ease;
+				top: 0;
+			}
+		}
+	}
+	@media (min-width: 991.98px) {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		top: 0;
+		left: -100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 80px 15px 30px 15px;
+		transition: left 0.3s ease;
+		background-color: $mainColor;
+		z-index: 7;
+		&::before {
+			content: "";
+			position: fixed;
+			width: 100%;
+			left: -100%;
+			z-index: 2;
+			transition: left 0.3s ease;
+			background-color: $mainColor;
+		}
+		&._active {
+			left: 0;
+			top: 0;
+			&::before {
+				left: 0;
+				top: 0;
+			}
+		}
+	}
+}
+
+.menu__list {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.menu__item {
+	margin-bottom: 50px;
+}
+
+.menu__list .menu__item .menu__link {
+	position: relative;
+	display: inline-block;
+	color: $mainColor;
+	font-size: 22px;
+	font-weight: 700;
+	text-align: center;
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 251, 251, 0.98) 50%, rgba(255, 255, 255, 0.48) 100%);
+	display: inline-block;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	// -webkit-text-stroke: 1px $colorBlue;
+}
+
+//====================================================================================================
+
+//Burger
+.icon-menu {
+	display: none;
+	@media (min-width: 320px) {
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 18px;
+		cursor: pointer;
+		z-index: 8;
+		span {
+			transition: all 0.3s ease 0s;
+			top: calc(50% - 1px);
+			left: 0px;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background: linear-gradient(90deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 251, 251, 0.98) 50%, rgba(255, 255, 255, 0.48) 100%);
+			&:first-child {
+				top: 0px;
+			}
+			&:last-child {
+				top: auto;
+				bottom: 0px;
+			}
+		}
+		&._active {
+			span {
+				background: linear-gradient(90deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 251, 251, 0.98) 50%, rgba(255, 255, 255, 0.48) 100%);
+				transform: scale(0);
+				&:first-child {
+					transform: rotate(-45deg);
+					top: calc(50% - 1px);
+				}
+				&:last-child {
+					transform: rotate(45deg);
+					bottom: calc(50% - 1px);
+				}
+			}
+		}
+	}
+}
