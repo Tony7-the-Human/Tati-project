@@ -57,12 +57,18 @@
 
 	// .footer__develop
 
-	&__develop {
+	&__develop a {
+		display: block;
 		font-weight: 400;
 		font-size: 10px;
 		line-height: 140%;
 		color: #c4c4c4;
 		margin-top: 16px;
+		transition: color 0.35s ease-in;
+	}
+
+	&__develop a:hover {
+		color: #797878;
 	}
 
 	// .footer__info
@@ -72,6 +78,11 @@
 		font-size: 16px;
 		line-height: 130%;
 		color: #c4c4c4;
+		transition: color 0.35s ease-in;
+	}
+
+	&__info a:hover {
+		color: #797878;
 	}
 
 	// .footer__contract
@@ -81,8 +92,12 @@
 		font-size: 16px;
 		line-height: 130%;
 		color: #c4c4c4;
+		transition: color 0.35s ease-in;
 	}
 
+	&__contract a:hover {
+		color: #797878;
+	}
 	// .footer__inn
 
 	&__inn {
